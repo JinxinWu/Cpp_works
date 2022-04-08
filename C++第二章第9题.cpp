@@ -1,5 +1,5 @@
-/*9.Éè¼ÆÒ»¸öÓÃÁ´±í±£´æÕûÐÍÔªËØµÄÁ´¶ÓÁÐÀà£¬ÒªÇóÊµÏÖµÄ¶ÓÁÐÀà¾ßÓÐÓë STL ÕûÐÍ¶ÓÁÐÀàÍ¬Ñù
-µÄ¹¦ÄÜ£¬¿ÉÒÔÌæ»»±¾ÕÂµÚ2.1 ½ÚÑùÀý Ex2.1ÀïµÄÕûÐÍ¶ÓÁÐÀà¡£×¢ÒâÈË¶ÓÁÐºÍ³ö¶ÓÁÐµÄÔËËãÐ§ÂÊ¡£*/
+/*9.è®¾è®¡ä¸€ä¸ªç”¨é“¾è¡¨ä¿å­˜æ•´åž‹å…ƒç´ çš„é“¾é˜Ÿåˆ—ç±»ï¼Œè¦æ±‚å®žçŽ°çš„é˜Ÿåˆ—ç±»å…·æœ‰ä¸Ž STL æ•´åž‹é˜Ÿåˆ—ç±»åŒæ ·
+çš„åŠŸèƒ½ï¼Œå¯ä»¥æ›¿æ¢æœ¬ç« ç¬¬2.1 èŠ‚æ ·ä¾‹ Ex2.1é‡Œçš„æ•´åž‹é˜Ÿåˆ—ç±»ã€‚æ³¨æ„äººé˜Ÿåˆ—å’Œå‡ºé˜Ÿåˆ—çš„è¿ç®—æ•ˆçŽ‡ã€‚*/
 #include <iostream>
 using namespace std;
 
@@ -21,7 +21,7 @@ private:
 	Node* m_sp;
 };
 
-CQueue::CQueue()//´øÍ·½áµãµÄÁ´±í
+CQueue::CQueue()//å¸¦å¤´ç»“ç‚¹çš„é“¾è¡¨
 {
 	m_sp = new Node;
 	m_sp->next = nullptr;
@@ -35,7 +35,7 @@ CQueue::~CQueue()
 		delete p;
 	}
 }
-void CQueue::push(int x)//ÏòÇ°²åÈëÊý¾Ý
+void CQueue::push(int x)//å‘å‰æ’å…¥æ•°æ®
 {
 	Node* p = new Node;
 	p->data = x;
@@ -67,7 +67,7 @@ int main()
 	CQueue C1, C2;
 	int v, x;
 
-	cout << "ÊäÈëÈô¸É¶ÔÕûÊýv¡¢x,1<=v<=2,½«ÔªËØx´æÈëµÚv¸ö¶ÓÁÐ" << endl;
+	cout << "è¾“å…¥è‹¥å¹²å¯¹æ•´æ•°vã€x,1<=v<=2,å°†å…ƒç´ xå­˜å…¥ç¬¬vä¸ªé˜Ÿåˆ—" << endl;
 
 	while (cin >> v >> x)
 	{
@@ -77,7 +77,7 @@ int main()
 			C2.push(x);
 	}
 
-	cout << "¶ÓÁÐ1ÖÐµÄÔªËØ£º";
+	cout << "é˜Ÿåˆ—1ä¸­çš„å…ƒç´ ï¼š";
 	while (!C1.empty())
 	{
 		x = C1.front();
@@ -86,7 +86,7 @@ int main()
 	}
 	cout << endl;
 
-	cout << "¶ÓÁÐ2ÖÐµÄÔªËØ£º";
+	cout << "é˜Ÿåˆ—2ä¸­çš„å…ƒç´ ï¼š";
 	while (!C2.empty())
 	{
 		x = C2.front();
