@@ -1,6 +1,6 @@
-/*8.���һ�������鱣������Ԫ�ص�����Ԫ�ض����࣬Ҫ��ʵ�ֵĶ���������� STL���Ͷ���
-��ͬ���Ĺ��ܣ������滻���µ�2.1������ Ex2.1 ������Ͷ����ࡣע�����ֶӿպͶ���״̬��
-ע������кͳ����е�����Ч�ʡ�*/
+/*8.设计一个用数组保存整型元素的整型元素队列类，要求实现的队列类具有与 STL整型队列
+类同样的功能，可以替换本章第2.1节样例 Ex2.1 里的整型队列类。注意区分队空和队满状态，
+注意入队列和出队列的运算效率。*/
 #include<iostream>
 using namespace std;
 #define N 1000
@@ -8,15 +8,15 @@ using namespace std;
 class CQueue
 {
 public:
-	CQueue();//���캯������ʼ��Ԫ�ظ���
-	~CQueue();//����������������Ԫ�����
-	void push(int x);//�����
-	int front();//ȡ����Ԫ��
-	bool empty() const;//�ж϶��зǿ�
-	void pop();//������
+	CQueue();//构造函数，初始化元素个数
+	~CQueue();//析构函数，将数组元素清空
+	void push(int x);//入队列
+	int front();//取队首元素
+	bool empty() const;//判断队列非空
+	void pop();//出队列
 //private:
 	int m_num[N];
-	int m_count;//��¼����Ԫ�ظ���
+	int m_count;//记录数组元素个数
 };
 
 CQueue::CQueue() :m_count(0)
@@ -57,7 +57,7 @@ int main()
 	CQueue Q1, Q2;
 	int v, x;
 
-	cout << "�������ɶ�����v��x,1<=v<=2,��Ԫ��x�����v������" << endl;
+	cout << "输入若干对整数v、x,1<=v<=2,将元素x存入第v个队列" << endl;
 
 	while (cin >> v >> x)
 	{
@@ -67,7 +67,7 @@ int main()
             Q2.push(x);
 	}
 
-	cout << "����1�е�Ԫ�أ�";
+	cout << "队列1中的元素：";
 	while (Q1.empty())
 	{
 		x = Q1.front();
@@ -76,7 +76,7 @@ int main()
 	}
 	cout << endl;
 
-	cout << "����2�е�Ԫ�أ�";
+	cout << "队列2中的元素：";
 	while (Q2.empty())
 	{
 		x = Q2.front();
