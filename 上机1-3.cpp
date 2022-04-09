@@ -31,7 +31,7 @@ public:
 private:
 	struct Node
 	{
-		Node() :next(nullptr);//节点建立后Node->next初始化为nullptr
+		Node() :next(nullptr){}//节点建立后Node->next初始化为nullptr
 		int data;
 		Node* next;
 	};
