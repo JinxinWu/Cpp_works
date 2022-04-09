@@ -1,37 +1,37 @@
-/*±àÐ´³ÌÐò£¬½øÒ»²½ÍêÉÆµäÐÍ°¸ÀýÖÐµÄ¼òµ¥¼¯ºÏÀà£¬Ìí¼Ó¼¯ºÏ½»¡¢²î¡¢É¾³ýÔªËØµÈ³É
-Ô±º¯Êý¹¦ÄÜ£¬²¢±àÐ´²âÊÔ³ÌÐò¡£*/
+/*ç¼–å†™ç¨‹åºï¼Œè¿›ä¸€æ­¥å®Œå–„å…¸åž‹æ¡ˆä¾‹ä¸­çš„ç®€å•é›†åˆç±»ï¼Œæ·»åŠ é›†åˆäº¤ã€å·®ã€åˆ é™¤å…ƒç´ ç­‰æˆ
+å‘˜å‡½æ•°åŠŸèƒ½ï¼Œå¹¶ç¼–å†™æµ‹è¯•ç¨‹åºã€‚*/
 #include <iostream>
 using namespace std;
 
 class CSet
 {
 public:
-    CSet();//¹¹Ôìº¯Êý
-    bool Add(int x);//Ôö¼ÓÔªËØ
-    void Display() const;//ÏÔÊ¾¼¯ºÏ
-    CSet Union(const CSet &rhs) const;//²¢¼¯
-    CSet Intersect(const CSet &rhs) const;//½»¼¯
-    CSet Except(const CSet &rhs) const;//²î¼¯
-    bool In(int x) const;//ÊÇ·ñ°üº¬ÔªËØx
-    void Delete(int x);//É¾³ýÔªËØ
+    CSet();//æž„é€ å‡½æ•°
+    bool Add(int x);//å¢žåŠ å…ƒç´ 
+    void Display() const;//æ˜¾ç¤ºé›†åˆ
+    CSet Union(const CSet &rhs) const;//å¹¶é›†
+    CSet Intersect(const CSet &rhs) const;//äº¤é›†
+    CSet Except(const CSet &rhs) const;//å·®é›†
+    bool In(int x) const;//æ˜¯å¦åŒ…å«å…ƒç´ x
+    void Delete(int x);//åˆ é™¤å…ƒç´ 
 private:
     enum{MaxSIZE = 100};
-    int m_iDatasA[MaxSIZE];//´óÐ¡ÎªÃ¶¾Ù³£Á¿MaxSIZEµÄÊý×é
-    int m_ICount;//±íÊ¾Êý×éÄÚ´æ·ÅÔªËØµÄ¸öÊý
+    int m_iDatasA[MaxSIZE];//å¤§å°ä¸ºæžšä¸¾å¸¸é‡MaxSIZEçš„æ•°ç»„
+    int m_ICount;//è¡¨ç¤ºæ•°ç»„å†…å­˜æ”¾å…ƒç´ çš„ä¸ªæ•°
 };
 
-CSet::CSet():m_ICount(0)//¹¹Ôìº¯Êý
+CSet::CSet():m_ICount(0)//æž„é€ å‡½æ•°
 {
 }
 
-bool CSet::Add(int x)//Ôö¼ÓÔªËØ
+bool CSet::Add(int x)//å¢žåŠ å…ƒç´ 
 {
-    if(In(x))//¼¯ºÏÖÐÔªËØ»¥ÒìÐÔ
+    if(In(x))//é›†åˆä¸­å…ƒç´ äº’å¼‚æ€§
         return false;
     if(m_ICount>=MaxSIZE)
-        throw "OverFlow";//¼¯ºÏÒÑÂú£¬Å×³öÒì³£´¦Àí
+        throw "OverFlow";//é›†åˆå·²æ»¡ï¼ŒæŠ›å‡ºå¼‚å¸¸å¤„ç†
     int i = m_ICount-1;
-    while(i>=0&&x<m_iDatasA[i])//´ÓÇ°Íùºó£¬ÔªËØºóÒÆ
+    while(i>=0&&x<m_iDatasA[i])//ä»Žå‰å¾€åŽï¼Œå…ƒç´ åŽç§»
     {
         m_iDatasA[i+1]=m_iDatasA[i];
         i--;
@@ -41,7 +41,7 @@ bool CSet::Add(int x)//Ôö¼ÓÔªËØ
     return true;
 }
 
-void CSet::Display() const//ÏÔÊ¾¼¯ºÏ
+void CSet::Display() const//æ˜¾ç¤ºé›†åˆ
 {
     cout<<"{";
     int i;
@@ -52,7 +52,7 @@ void CSet::Display() const//ÏÔÊ¾¼¯ºÏ
     cout<<"}"<<endl;
 }
 
-CSet CSet::Union(const CSet &rhs) const//²¢¼¯£¬·µ»ØÀàÐÍÎªCSet
+CSet CSet::Union(const CSet &rhs) const//å¹¶é›†ï¼Œè¿”å›žç±»åž‹ä¸ºCSet
 {
     CSet result;
     int i,j;
@@ -60,7 +60,7 @@ CSet CSet::Union(const CSet &rhs) const//²¢¼¯£¬·µ»ØÀàÐÍÎªCSet
     while(i<m_ICount&&j<rhs.m_ICount)
     {
         if(result.m_ICount>=MaxSIZE)
-            throw "OverFlow";//¼¯ºÏÒÑÂú£¬Å×³öÒì³£´¦Àí
+            throw "OverFlow";//é›†åˆå·²æ»¡ï¼ŒæŠ›å‡ºå¼‚å¸¸å¤„ç†
         if(m_iDatasA[i]<rhs.m_iDatasA[j])
         {
             result.m_iDatasA[result.m_ICount++]=m_iDatasA[i];
@@ -95,7 +95,7 @@ CSet CSet::Union(const CSet &rhs) const//²¢¼¯£¬·µ»ØÀàÐÍÎªCSet
     return result;
 }
 
-CSet CSet::Intersect(const CSet &rhs) const//½»¼¯
+CSet CSet::Intersect(const CSet &rhs) const//äº¤é›†
 {
     CSet result;
     int i,j;
@@ -114,7 +114,7 @@ CSet CSet::Intersect(const CSet &rhs) const//½»¼¯
     return result;
 }
 
-CSet CSet::Except(const CSet &rhs) const//²î¼¯
+CSet CSet::Except(const CSet &rhs) const//å·®é›†
 {
     CSet result;
     int i,j,flag=1;
@@ -134,7 +134,7 @@ CSet CSet::Except(const CSet &rhs) const//²î¼¯
     return result;
 }
 
-bool CSet::In(int x) const//ÊÇ·ñ°üº¬ÔªËØx
+bool CSet::In(int x) const//æ˜¯å¦åŒ…å«å…ƒç´ x
 {
     int i=0;
     while(i<m_ICount&&x>m_iDatasA[i])
@@ -144,7 +144,7 @@ bool CSet::In(int x) const//ÊÇ·ñ°üº¬ÔªËØx
     return false;
 }
 
-void CSet::Delete(int x)//É¾³ýÔªËØ
+void CSet::Delete(int x)//åˆ é™¤å…ƒç´ 
 {
     int i;
     for(i=0;i<m_ICount;i++)
@@ -167,7 +167,7 @@ int main()
     CSet A,B,S,R,T;
     int i,m,n,k,x;
 
-    cin>>m>>n>>k;//½¨Á¢A¼¯
+    cin>>m>>n>>k;//å»ºç«‹Aé›†
     for(i=0;i<m;i++)
     {
         cin>>x;
