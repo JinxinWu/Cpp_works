@@ -1,5 +1,5 @@
-/*���һ��Բ�࣬ʹ����м������ð뾶����ȡ�뾶����������������ܳ��Ĺ��ܣ�
-ʵ����Щ��Ա��������дԲ����Գ���*/
+/*设计一个圆类，使其具有计算设置半径、获取半径、计算面积、计算周长的功能，
+实现这些成员函数，编写圆类测试程序*/
 #include <iostream>
 
 using namespace std;
@@ -36,8 +36,8 @@ void CCircle::Calculation_C(double x)
 }
 void CCircle::Show() const
 {
-    cout<<"�����"<<S<<endl;
-    cout<<"�ܳ���"<<C<<endl;
+    cout<<"面积："<<S<<endl;
+    cout<<"周长："<<C<<endl;
 }
 int main(){
     double a;
