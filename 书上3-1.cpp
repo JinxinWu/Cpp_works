@@ -12,15 +12,15 @@ public:
 	~CSet();
 
 	//拷贝构造函数
-	CSet(const CSet&);
+	CSet(const CSet& rhs);
 	// 移动构造函数
-	CSet(CSet&&) noexcept;
+	CSet(CSet&& rhs) noexcept;
 	//删除元素x
 	bool Remove(int x);
 	//是否包含元素 x
 	bool In(int x);
 	//复制赋值
-	CSet& operator= (const CSet& rh);
+	CSet& operator= (const CSet& rhs);
 	//移动赋值
 	CSet& operator=(CSet&& rhs) noexcept;
 
@@ -216,7 +216,7 @@ CSet CSet::Differ(const CSet& rhs) const
 			p = p->next;
 			q = q->next;
 		}
-		else if(p->data < q->data)
+		else if (p->data < q->data)
 		{
 			Node* s = new Node;
 			s->data = p->data;
@@ -258,7 +258,7 @@ CSet::CSet(const CSet& rhs)
 		Node* q = new Node;//申请一节点
 		q->data = p->data;//复制元素
 		//挂在最后
-		last->next = q; 
+		last->next = q;
 		last = q;
 		// 后移一节点
 		p = p->next;
