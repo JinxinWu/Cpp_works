@@ -1,8 +1,8 @@
-/*6.���һ�����п������졢���Ƹ�ֵ���ƶ�������ƶ���ֵ���ܵ� CSamplePart �࣬�����һ��������Ϊ CSamplePart 
-�����ݳ�Ա���࣬�ñ�����Ϊ��ϳɿ������졢�ƶ����졢���Ƹ�ֵ���ƶ���ֵ����д���Գ��򣬲��ԺϳɵĿ������ƺ�����Ч����
+/*6.设计一个具有拷贝构造、复制赋值、移动构造和移动赋值功能的 CSamplePart 类，再设计一个含类型为 CSamplePart 
+的数据成员的类，让编译器为你合成拷贝构造、移动构造、复制赋值和移动赋值。编写测试程序，测试合成的拷贝控制函数的效果。
 
-7.���һ�����п������졢���Ƹ�ֵ���ƶ�������ƶ���ֵ���ܵ�CSamplePart �࣬�����һ��������Ϊ CSamplePart �����ݳ�Ա
-���࣬���ظ���Ŀ������졢�ƶ����졢���Ƹ�ֵ���ƶ���ֵ�еĲ��ֺ�������д���Գ��򣬲��Ա������Ƿ�ϳ����ຯ����*/
+7.设计一个具有拷贝构造、复制赋值、移动构造和移动赋值功能的CSamplePart 类，再设计一个含类型为 CSamplePart 的数据成员
+的类，重载该类的拷贝构造、移动构造、复制赋值和移动赋值中的部分函数。编写测试程序，测试编译器是否合成其余函数。*/
 #include <iostream>
 using namespace std;
 
@@ -10,16 +10,16 @@ class CSamplePart
 {
 public:
 	CSamplePart() {
-		m_pHead = new Node;//��̬����
+		m_pHead = new Node;//动态分配
 		m_pHead->next = NULL;
 	}
-	//�������캯��
+	//拷贝构造函数
 	CSamplePart(const CSamplePart& rhs);
-	//�ƶ����캯��
+	//移动构造函数
 	CSamplePart(CSamplePart&& rhs) noexcept;
-	//���Ƹ�ֵ
+	//复制赋值
 	CSamplePart& operator= (const CSamplePart& rhs);
-	//�ƶ���ֵ
+	//移动赋值
 	CSamplePart& operator=(CSamplePart&& rhs) noexcept;
 
 	void Input(int x);
@@ -29,41 +29,41 @@ private:
 	{
 		int data;
 		Node* next;
-	}*m_pHead;//���ϲ��õ�������������ʾ
+	}*m_pHead;//集合采用递增排序单链表表示
 };
 
-//�������캯��
+//拷贝构造函数
 CSamplePart::CSamplePart(const CSamplePart& rhs)
 {
-	//����ͷ�ڵ�
+	//复制头节点
 	m_pHead = new Node;
-	Node* last = m_pHead;//���ڵ�
+	Node* last = m_pHead;//最后节点
 
-	Node* p = rhs.m_pHead->next;//�����޸�rhs.m_pHead����������ʱ������
+	Node* p = rhs.m_pHead->next;//不可修改rhs.m_pHead，故引入临时变量。
 	while (p)
 	{
-		Node* q = new Node;//����һ�ڵ�
-		q->data = p->data;//����Ԫ��
-		//�������
+		Node* q = new Node;//申请一节点
+		q->data = p->data;//复制元素
+		//挂在最后
 		last->next = q;
 		last = q;
-		// ����һ�ڵ�
+		// 后移一节点
 		p = p->next;
 	}
 	last->next = NULL;
-	cout << "���CSamplePart�Ŀ������캯��" << endl;
+	cout << "完成CSamplePart的拷贝构造函数" << endl;
 }
 
-//�ƶ����캯��
+//移动构造函数
 CSamplePart::CSamplePart(CSamplePart&& rhs) noexcept
 {
-	//�ƶ�ͷ�ڵ�
+	//移动头节点
 	m_pHead = rhs.m_pHead;
 	rhs.m_pHead = NULL;
-	cout << "���CSamplePart���ƶ����캯��" << endl;
+	cout << "完成CSamplePart的移动构造函数" << endl;
 }
 
-//���Ƹ�ֵ
+//复制赋值
 CSamplePart& CSamplePart::operator=(const CSamplePart& rhs)
 {
 	CSamplePart tmp(rhs);
@@ -72,10 +72,10 @@ CSamplePart& CSamplePart::operator=(const CSamplePart& rhs)
 	m_pHead = tmp.m_pHead;
 	tmp.m_pHead = t;
 	return *this;
-	cout << "���CSamplePart�ĸ��Ƹ�ֵ" << endl;
+	cout << "完成CSamplePart的复制赋值" << endl;
 }
 
-//�ƶ���ֵ
+//移动赋值
 CSamplePart& CSamplePart:: operator = (CSamplePart&& rhs) noexcept
 {
 	Node* p = this->m_pHead;
@@ -83,7 +83,7 @@ CSamplePart& CSamplePart:: operator = (CSamplePart&& rhs) noexcept
 	rhs.m_pHead = p;
 
 	return *this;
-	cout << "���CSamplePart���ƶ���ֵ" << endl;
+	cout << "完成CSamplePart的移动赋值" << endl;
 }
 
 void CSamplePart::Input(int x)
@@ -121,44 +121,44 @@ public:
 	}
 	void Show();
 
-	//�������캯��
+	//拷贝构造函数
 	CSet(const CSet& rhs);
-	//�ƶ����캯��
+	//移动构造函数
 	CSet(CSet&& rhs) noexcept;
-	//���Ƹ�ֵ
+	//复制赋值
 	CSet& operator= (const CSet& rhs);
-	//�ƶ���ֵ
+	//移动赋值
 	CSet& operator=(CSet&& rhs) noexcept;
 private:
 	CSamplePart S;
 };
 
-//�������캯��
+//拷贝构造函数
 CSet::CSet(const CSet& rhs)
 {
 	S = rhs.S;
-	cout << "���CSet�Ŀ������캯��" << endl;
+	cout << "完成CSet的拷贝构造函数" << endl;
 }
 
-//�ƶ����캯��
+//移动构造函数
 CSet::CSet(CSet&& rhs) noexcept
 {
 	S = rhs.S;
-	cout << "���CSet���ƶ����캯��" << endl;
+	cout << "完成CSet的移动构造函数" << endl;
 }
 
-//���Ƹ�ֵ
+//复制赋值
 CSet& CSet::operator= (const CSet& rhs)
 {
 	S = rhs.S;
-	cout << "���CSet���ƶ����캯��" << endl;
+	cout << "完成CSet的移动构造函数" << endl;
 	return *this;
 }
-//�ƶ���ֵ
+//移动赋值
 CSet& CSet::operator=(CSet&& rhs) noexcept
 {
 	S = rhs.S;
-	cout << "���CSet���ƶ����캯��" << endl;
+	cout << "完成CSet的移动构造函数" << endl;
 	return *this;
 }
 
