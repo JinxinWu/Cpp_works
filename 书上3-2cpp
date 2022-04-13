@@ -1,37 +1,37 @@
-/*2. ��Ƶ�������ʾ������ջ�࣬Ҫ��ջ������� STL stack ���ƵĽӿں͹��ܣ�����
-�п������졢���Ƹ�ֵ���ƶ����졢�ƶ���ֵ���ܡ���д���Գ��򣬲�������Ƶ�������ջ��*/
+/*2. 设计单链表表示的整型栈类，要求栈类具有与 STL stack 类似的接口和功能，并具
+有拷贝构造、复制赋值、移动构造、移动赋值功能。编写测试程序，测试你设计的整型链栈类*/
 #include <iostream>
 using namespace std;
 
 class CStack
 {
 public:
-	CStack();//���캯��
-	~CStack();//��������
+	CStack();//构造函数
+	~CStack();//析构函数
 
-	//�������캯��
+	//拷贝构造函数
 	CStack(const CStack& rhs);
-	// �ƶ����캯��
+	// 移动构造函数
 	CStack(CStack&& rhs) noexcept;
-	//���Ƹ�ֵ
+	//复制赋值
 	CStack& operator= (const CStack& rhs);
-	//�ƶ���ֵ
+	//移动赋值
 	CStack& operator=(CStack&& rhs) noexcept;
-	//��ʾ����
+	//显示集合
 	void Display();
 
-	void push(int x);//��ջ
-	bool empty() const;//�п�
-	int top() const;//�ǿ�ȡջ��
-	void pop();//�ǿճ�ջ
-	void head();//����ͷ�ڵ�Ϊ��
+	void push(int x);//入栈
+	bool empty() const;//判空
+	int top() const;//非空取栈顶
+	void pop();//非空出栈
+	void head();//建立头节点为空
 private:
 	struct Node
 	{
 		int data;
 		Node* next;
 	};
-	Node* m_phead;//����ͷ�ڵ�
+	Node* m_phead;//建立头节点
 };
 
 CStack::CStack() :m_phead(nullptr) {}
@@ -45,34 +45,34 @@ CStack::~CStack()
 	}
 }
 
-//�������캯��
+//拷贝构造函数
 CStack::CStack(const CStack& rhs)
 {
-	//����ͷ�ڵ�
+	//复制头节点
 	m_phead = new Node;
-	Node* last = m_phead;//���ڵ�
+	Node* last = m_phead;//最后节点
 
-	Node* p = rhs.m_phead->next;//�����޸�rhs.m_pHead����������ʱ������
+	Node* p = rhs.m_phead->next;//不可修改rhs.m_pHead，故引入临时变量。
 	while (p)
 	{
-		Node* q = new Node;//����һ�ڵ�
-		q->data = p->data;//����Ԫ��
-		//�������
+		Node* q = new Node;//申请一节点
+		q->data = p->data;//复制元素
+		//挂在最后
 		last->next = q;
 		last = q;
-		// ����һ�ڵ�
+		// 后移一节点
 		p = p->next;
 	}
 	last->next = NULL;
 }
-//�ƶ����캯��
+//移动构造函数
 CStack::CStack(CStack&& rhs) noexcept
 {
-	//�ƶ�ͷ�ڵ�
+	//移动头节点
 	m_phead = rhs.m_phead;
 	rhs.m_phead = NULL;
 }
-//���Ƹ�ֵ
+//复制赋值
 CStack& CStack::operator=(const CStack& rhs)
 {
 	CStack tmp(rhs);
@@ -82,7 +82,7 @@ CStack& CStack::operator=(const CStack& rhs)
 	tmp.m_phead = t;
 	return *this;
 }
-//�ƶ���ֵ
+//移动赋值
 CStack& CStack:: operator = (CStack&& rhs) noexcept
 {
 	Node* p = this->m_phead;
@@ -91,21 +91,21 @@ CStack& CStack:: operator = (CStack&& rhs) noexcept
 
 	return *this;
 }
-//��ʾ����
+//显示集合
 void CStack::Display()
 {
-	Node* p = m_phead->next;//��ʱ�ڵ�
-	cout << "{";//��ʽ�淶
+	Node* p = m_phead->next;//临时节点
+	cout << "{";//格式规范
 	while (p)
 	{
 		cout << p->data;
 		p = p->next;
 		if (p) cout << ",";
 	}
-	cout << "}" << endl;//��ʽ�淶
+	cout << "}" << endl;//格式规范
 }
 
-void CStack::push(int x)//�Ӻ���ǰ��������
+void CStack::push(int x)//从后往前插入数据
 {
 	Node* p = new Node;
 	p->data = x;
