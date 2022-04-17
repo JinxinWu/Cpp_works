@@ -11,7 +11,7 @@ public:
 	CClock operator -(int iAddSeconds)const;//返回若干秒前的时间
 	int operator - (const CClock& rhs) const;//相差秒数
 	CClock& operator ++ ();//时间先++，返回新时间
-	CClock operator ++(int);//时间后十十，返回原时间
+	CClock operator ++(int);//时间后++，返回原时间
 	bool operator > (const CClock& rhs) const;
 	bool operator==(const CClock& rhs) const;
 	bool operator >=(const CClock& rhs) const;
