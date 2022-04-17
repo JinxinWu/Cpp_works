@@ -1,36 +1,36 @@
-/*4.Îª±¾ÕÂÖĞµÄÊ±ÖÓÀàÌí¼Ó<¡¢<=¡¢!=ÔËËã·ûÖØÔØ²¢²âÊÔ¡£*/
+/*4.ä¸ºæœ¬ç« ä¸­çš„æ—¶é’Ÿç±»æ·»åŠ <ã€<=ã€!=è¿ç®—ç¬¦é‡è½½å¹¶æµ‹è¯•ã€‚*/
 # include <iostream>
 # include <iomanip>
 using namespace std;
-//Ê±ÖÓÀà£¬12Ğ¡Ê±Ñ­»·¼ÆÊ±
+//æ—¶é’Ÿç±»ï¼Œ12å°æ—¶å¾ªç¯è®¡æ—¶
 class CClock
 {
 public:
 	explicit CClock(int iHour = 0, int iMinute = 0, int iSecond = 0);
-	CClock operator + (int iAddSeconds) const;//·µ»ØÈô¸ÉÃëºóµÄÊ±¼ä
-	CClock operator -(int iAddSeconds)const;//·µ»ØÈô¸ÉÃëÇ°µÄÊ±¼ä
-	int operator - (const CClock& rhs) const;//Ïà²îÃëÊı
-	CClock& operator ++ ();//Ê±¼äÏÈ++£¬·µ»ØĞÂÊ±¼ä
-	CClock operator ++(int);//Ê±¼äºóÊ®Ê®£¬·µ»ØÔ­Ê±¼ä
+	CClock operator + (int iAddSeconds) const;//è¿”å›è‹¥å¹²ç§’åçš„æ—¶é—´
+	CClock operator -(int iAddSeconds)const;//è¿”å›è‹¥å¹²ç§’å‰çš„æ—¶é—´
+	int operator - (const CClock& rhs) const;//ç›¸å·®ç§’æ•°
+	CClock& operator ++ ();//æ—¶é—´å…ˆ++ï¼Œè¿”å›æ–°æ—¶é—´
+	CClock operator ++(int);//æ—¶é—´åååï¼Œè¿”å›åŸæ—¶é—´
 	bool operator > (const CClock& rhs) const;
 	bool operator==(const CClock& rhs) const;
 	bool operator >=(const CClock& rhs) const;
 	bool operator < (const CClock& rhs) const;
 	bool operator <= (const CClock& rhs) const;
 	bool operator != (const CClock& rhs) const;
-	explicit operator int() const;// ÀàĞÍ×ª»»£¬»»Ëã³ÉÃë
+	explicit operator int() const;// ç±»å‹è½¬æ¢ï¼Œæ¢ç®—æˆç§’
 	friend ostream& operator << (ostream& os, const CClock& rhs);
 	friend istream& operator >> (istream& is, CClock& rhs);
 private:
-	int _iHour, _iMinute, _iSecond;//Ê±£¬·Ö£¬Ãë
+	int _iHour, _iMinute, _iSecond;//æ—¶ï¼Œåˆ†ï¼Œç§’
 };
 CClock::CClock(int iHour, int iMinute, int iSecond)
 	:_iHour(iHour), _iMinute(iMinute), _iSecond(iSecond)
 {}
-//·µ»ØÈô¸ÉÃëºóµÄÊ±¼ä
+//è¿”å›è‹¥å¹²ç§’åçš„æ—¶é—´
 CClock CClock::operator + (int iAddSeconds) const
 {
-	int iSecondTotal = static_cast<int>(*this) + iAddSeconds;//static_cast<int>(*this)Ê±ÖÓ¶ÔÏó×ª»»ºóµÄÃëÊı
+	int iSecondTotal = static_cast<int>(*this) + iAddSeconds;//static_cast<int>(*this)æ—¶é’Ÿå¯¹è±¡è½¬æ¢åçš„ç§’æ•°
 	iSecondTotal = (iSecondTotal % (12 * 60 * 60) + (12 * 60 * 60)) % (12 * 60 * 60);
 	int iHour, iMinute, iSecond;
 	iHour = iSecondTotal / (60 * 60) % 12;
@@ -38,17 +38,17 @@ CClock CClock::operator + (int iAddSeconds) const
 	iSecond = iSecondTotal % 60;
 	return CClock(iHour, iMinute, iSecond);
 }
-//·µ»ØÈô¸ÉÃëÇ°µÄÊ±¼ä
+//è¿”å›è‹¥å¹²ç§’å‰çš„æ—¶é—´
 CClock CClock :: operator - (int iAddSeconds) const
 {
 	return *this + (-iAddSeconds);
 }
-//Ïà²îÃëÊı
+//ç›¸å·®ç§’æ•°
 int CClock:: operator - (const CClock& rhs) const
 {
 	return static_cast<int>(*this) - static_cast<int>(rhs);
 }
-//Ê±¼äÏÈ++£¬·µ»ØĞÂÊ±¼ä
+//æ—¶é—´å…ˆ++ï¼Œè¿”å›æ–°æ—¶é—´
 CClock& CClock:: operator ++()
 {
 	if (++_iSecond == 60) {
@@ -62,7 +62,7 @@ CClock& CClock:: operator ++()
 	}
 	return *this;
 }
-//Ê±¼äºó++£¬·µ»ØÔ­Ê±¼ä
+//æ—¶é—´å++ï¼Œè¿”å›åŸæ—¶é—´
 CClock CClock:: operator ++(int)
 {
 	CClock tmp(*this);
@@ -95,24 +95,24 @@ bool CClock:: operator != (const CClock& rhs) const //new
 {
 	return !(*this == rhs);
 }
-//ÀàĞÍ×ª»»£¬»»Ëã³ÉÃë
+//ç±»å‹è½¬æ¢ï¼Œæ¢ç®—æˆç§’
 CClock:: operator int() const
 {
 	return _iHour * 60 * 60 + _iMinute * 60 + _iSecond;
 }
-//²åÈëÔËËã·û£¼£¼ÖØÔØ
+//æ’å…¥è¿ç®—ç¬¦ï¼œï¼œé‡è½½
 ostream& operator << (ostream& os, const CClock& rhs)
 {
-	cout.fill('0');//ºóĞøÊ±·ÖÃëÊä³ö²»×ã(2 Î»)²¿·ÖÇ°²¹×Ö·û0
-	os << setw(2) << rhs._iHour//_iHoursetw(2)ºóĞøÊä³öÕ¼2Î»£¬Ò»´ÎÓĞĞ§
+	cout.fill('0');//åç»­æ—¶åˆ†ç§’è¾“å‡ºä¸è¶³(2 ä½)éƒ¨åˆ†å‰è¡¥å­—ç¬¦0
+	os << setw(2) << rhs._iHour//_iHoursetw(2)åç»­è¾“å‡ºå 2ä½ï¼Œä¸€æ¬¡æœ‰æ•ˆ
 		<< ": " << setw(2) << rhs._iMinute
 		<< ": " << setw(2) << rhs._iSecond;
 	return os;
 }
-//ÌáÈ¡ÔËËã·û£¾£¾ÖØÔØ
+//æå–è¿ç®—ç¬¦ï¼ï¼é‡è½½
 istream& operator >> (istream& is, CClock& rhs)
 {
-	char ch;//ÓÃÓÚÌø¹ıÃ°ºÅ:
+	char ch;//ç”¨äºè·³è¿‡å†’å·:
 	is >> rhs._iHour >> ch >> rhs._iMinute >> ch >> rhs._iSecond;
 	return is;
 }
