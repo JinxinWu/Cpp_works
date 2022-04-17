@@ -1,4 +1,4 @@
-/*7.Íê³ÉÈçÏÂÈÕÆÚÀàCDate¡£*/
+/*7.å®Œæˆå¦‚ä¸‹æ—¥æœŸç±»CDateã€‚*/
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -20,7 +20,7 @@ private:
 	int m_year, m_month, m_day;
 };
 
-//ÈôÎŞ²ÎÊı£¬³õÊ¼»¯Îª2022/4/17
+//è‹¥æ— å‚æ•°ï¼Œåˆå§‹åŒ–ä¸º2022/4/17
 CDate::CDate()
 	:m_year(2022), m_month(4), m_day(17)
 {}
