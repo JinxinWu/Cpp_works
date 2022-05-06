@@ -13,7 +13,7 @@ public:
     }
     virtual void IntroduceSelf()
     {
-        cout << "±àºÅ:" << _num << " ÐÕÃû:" << _name << " ÔÂ¹¤×Ê:" << _wage << endl;
+        cout << "ç¼–å·:" << _num << " å§“å:" << _name << " æœˆå·¥èµ„:" << _wage << endl;
     }
     virtual void GetWage() = 0;
 protected:
@@ -33,7 +33,7 @@ public:
     }
     void IntroduceSelf()
     {
-        cout << "ÕâÊÇÒ»Î»¾­Àí" << endl;
+        cout << "è¿™æ˜¯ä¸€ä½ç»ç†" << endl;
         Person::IntroduceSelf();
     }
 };
@@ -48,7 +48,7 @@ public:
     }
     void IntroduceSelf()
     {
-        cout << "ÕâÊÇÒ»Î»¼æÖ°¼¼ÊõÈËÔ±" << endl;
+        cout << "è¿™æ˜¯ä¸€ä½å…¼èŒæŠ€æœ¯äººå‘˜" << endl;
         Person::IntroduceSelf();
     }
 private:
@@ -65,7 +65,7 @@ public:
     }
     void IntroduceSelf()
     {
-        cout << "ÕâÊÇÒ»Î»ÏúÊÛÔ±" << endl;
+        cout << "è¿™æ˜¯ä¸€ä½é”€å”®å‘˜" << endl;
         Person::IntroduceSelf();
     }
 private:
@@ -82,7 +82,7 @@ public:
     }
     void IntroduceSelf()
     {
-        cout << "ÕâÊÇÒ»Î»ÏúÊÛ¾­Àí" << endl;
+        cout << "è¿™æ˜¯ä¸€ä½é”€å”®ç»ç†" << endl;
         Person::IntroduceSelf();
     }
 private:
