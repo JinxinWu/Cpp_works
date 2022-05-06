@@ -14,7 +14,7 @@ public:
     }
     void Get()
     {
-        cout << "Ãû×Ö£º" << _name << "ÐÔ±ð£º" << _sex << "ÄêÁä" << _age << endl;
+        cout << "åå­—ï¼š" << _name << "æ€§åˆ«ï¼š" << _sex << "å¹´é¾„" << _age << endl;
     }
     virtual void IntroduceSelf()
     {
@@ -34,7 +34,7 @@ public:
     void IntroduceSelf();
     void GetCurrentNum()
     {
-        cout << "ÊÇÒ»Î»Ä¿Ç°ÔÚÑ§¿Î³Ì" << _classNum << "ÃÅµÄÑ§Éú" << endl;
+        cout << "æ˜¯ä¸€ä½ç›®å‰åœ¨å­¦è¯¾ç¨‹" << _classNum << "é—¨çš„å­¦ç”Ÿ" << endl;
     }
 private:
     int _classNum;
@@ -52,7 +52,7 @@ public:
     void IntroduceSelf();
     void GetCurrentNum()
     {
-        cout << "ÊÇÒ»Î»Ä¿Ç°Ã¿ÖÜÊÚ¿Î" << _classNum << "Ñ§Ê±µÄÀÏÊ¦" << endl;
+        cout << "æ˜¯ä¸€ä½ç›®å‰æ¯å‘¨æŽˆè¯¾" << _classNum << "å­¦æ—¶çš„è€å¸ˆ" << endl;
     }
 private:
     int _classNum;
@@ -65,8 +65,8 @@ void Teacher::IntroduceSelf()
 
 int main()
 {
-    HDUPerson* p1 = new Student("Tom", "ÄÐ", 18, 6);
-    HDUPerson* p2 = new Teacher("Marry", "Å®", 31, 8);
+    HDUPerson* p1 = new Student("Tom", "ç”·", 18, 6);
+    HDUPerson* p2 = new Teacher("Marry", "å¥³", 31, 8);
     p1->IntroduceSelf();
     p2->IntroduceSelf();
     return 0;
