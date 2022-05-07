@@ -74,7 +74,7 @@ int main()
 		cin >> temp;
 		if (temp == p1)
 		{
-			p[i] = new Ractangle(0.00, 0.00);//此时要先new一个派生类对象
+			p[i] = new Ractangle(0.00, 0.00);//姝ゆ椂瑕佸厛new涓�涓淳鐢熺被瀵硅薄
 			p[i]->Input();
 		}
 		else if (temp == p2)
@@ -84,11 +84,11 @@ int main()
 		}
 		else
 		{
-			cout << "输入错误";
+			cout << "杈撳叆閿欒";
 			break;
 		}
 	}
-	//输出
+	//杈撳嚭
 	double sum = 0.0;
 	for (int i = 0; i < 3; ++i)
 	{
