@@ -1,4 +1,4 @@
-/*���˳���������Ԫ�غ���ģ�壬��д���Գ������øú���ģ�壬�ֱ��������������Һ��ַ���������ҡ�*/
+/*设计顺序查找数组元素函数模板，编写测试程序，利用该函数模板，分别完成整型数组查找和字符串数组查找。*/
 #include <iostream>
 using namespace std;
 
@@ -24,14 +24,14 @@ int main()
 {
 	int a;
 	string b;
-	cout << "������һ������һ���ַ��������ÿո����:" << endl;
+	cout << "请输入一个数和一个字符串，并用空格隔开:" << endl;
 	cin >> a >> b;
 	if (Seek(num, 10, a))
-		cout << a << "�ڵ�" << Seek(num, 10, a) << "��λ��" << endl;
+		cout << a << "在第" << Seek(num, 10, a) << "个位置" << endl;
 	else
-		cout << "���޴���" << endl;
+		cout << "查无此数" << endl;
 	if (Seek(str, 10, b))
-		cout << b << "�ڵ�" << Seek(str, 10, b) << "��λ��" << endl;
+		cout << b << "在第" << Seek(str, 10, b) << "个位置" << endl;
 	else
-		cout << "���޴��ַ���" << endl;
+		cout << "查无此字符串" << endl;
 }
