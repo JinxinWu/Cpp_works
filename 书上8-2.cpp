@@ -19,11 +19,11 @@ int main()
 	vector<int> V;
 
 	copy(istream_iterator<int>(cin), istream_iterator<int>(), back_inserter(V));
-	cout << "ÈİÆ÷ÖĞµÄÔªËØÓĞ£º";
+	cout << "å®¹å™¨ä¸­çš„å…ƒç´ æœ‰ï¼š";
 	copy(V.begin(), V.end(), ostream_iterator<int>(cout, "\t"));
 	cout << endl;
 
-	cout << "ÈİÆ÷ÄÚµÄËØÊıÓĞ£º";
+	cout << "å®¹å™¨å†…çš„ç´ æ•°æœ‰ï¼š";
 	copy_if(begin(V), end(V), ostream_iterator<int>(cout, "\t"), isPrime);
 
 	return 0;
