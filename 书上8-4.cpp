@@ -19,11 +19,11 @@ int main()
 	list<int> V;
 
 	copy(istream_iterator<int>(cin), istream_iterator<int>(), back_inserter(V));
-	cout << "容器内值为0的元素个数：";
+	cout << "瀹瑰櫒鍐呭�间负0鐨勫厓绱犱釜鏁帮細";
 	size_t result1 = count_if(V.begin(), V.end(), [](int x) {return x == 0; });
 	cout << result1 << endl;
 
-	cout << "容器内素数个数：";
+	cout << "瀹瑰櫒鍐呯礌鏁颁釜鏁帮細";
 	size_t result2 = count_if(begin(V), end(V), isPrime);
 	cout << result2 << endl;
 
