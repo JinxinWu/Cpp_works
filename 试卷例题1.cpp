@@ -1,3 +1,10 @@
+/* 按下列要求编程，实现类的定义，并在主函数中测试这个类。
+定义一个描述日期的类 Date，包括的数据成员有年（year）、月（month）和日（day），并实
+现如下功能函数；
+（1）日期对象初始化；
+（2）设置日期；
+（3）以 year/month/day 形式输出日期；
+（4）判断闰年。*/
 #include <iostream>
 using namespace std;
 class Date
