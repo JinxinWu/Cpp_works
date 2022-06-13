@@ -1,34 +1,34 @@
-/*¶¨ÒåÒ»¸ö¾ØÕóÀà£¨Matrix£©£¬Éè¼ÆÏà¹ØµÄ¹¹Ôìº¯Êı¡¢Îö¹¹º¯ÊıµÈ£¬²ÉÓÃÔËËã·ûÖØÔØ·½Ê½
-ÊµÏÖ¾ØÕóµÄ¼Ó¡¢¼õÔËËã¡£±àĞ´ main º¯Êı£¬¶ÔÒÔÉÏËùÓĞ¹¦ÄÜ½øĞĞ²âÊÔ¡£×¢Òâ£º°´ÕÕÊµ¼ÊÇé¿ö
-´óĞ¡Ê¹ÓÃÄÚ´æ¿Õ¼ä£¬¾ØÕóµÄ¼Ó¡¢¼õÔËËã²»ÒªÔì³ÉÄÚ´æÀË·Ñ¡£*/
+/*å®šä¹‰ä¸€ä¸ªçŸ©é˜µç±»ï¼ˆMatrixï¼‰ï¼Œè®¾è®¡ç›¸å…³çš„æ„é€ å‡½æ•°ã€ææ„å‡½æ•°ç­‰ï¼Œé‡‡ç”¨è¿ç®—ç¬¦é‡è½½æ–¹å¼
+å®ç°çŸ©é˜µçš„åŠ ã€å‡è¿ç®—ã€‚ç¼–å†™ main å‡½æ•°ï¼Œå¯¹ä»¥ä¸Šæ‰€æœ‰åŠŸèƒ½è¿›è¡Œæµ‹è¯•ã€‚æ³¨æ„ï¼šæŒ‰ç…§å®é™…æƒ…å†µ
+å¤§å°ä½¿ç”¨å†…å­˜ç©ºé—´ï¼ŒçŸ©é˜µçš„åŠ ã€å‡è¿ç®—ä¸è¦é€ æˆå†…å­˜æµªè´¹ã€‚*/
 #include <iostream>
 #include <vector>
 #include <cstdlib>
 using namespace std;
 class Matrix {
 public:
-	Matrix(int row, int col); //¹¹Ôì row x col ´óĞ¡¾ØÕó
-	Matrix operator + (const Matrix& rhs) const;//ÏàÍ¬´óĞ¡¾ØÕóÏà¼Ó
-	Matrix operator - (const Matrix& rhs) const;//ÏàÍ¬´óĞ¡¾ØÕóÏà¼õ
-	void Display() const;//ÏÔÊ¾¾ØÕó
-	//¾ØÕóÔªËØ£¬¿É×÷ÎªÓÒÖµ
+	Matrix(int row, int col); //æ„é€  row x col å¤§å°çŸ©é˜µ
+	Matrix operator + (const Matrix& rhs) const;//ç›¸åŒå¤§å°çŸ©é˜µç›¸åŠ 
+	Matrix operator - (const Matrix& rhs) const;//ç›¸åŒå¤§å°çŸ©é˜µç›¸å‡
+	void Display() const;//æ˜¾ç¤ºçŸ©é˜µ
+	//çŸ©é˜µå…ƒç´ ï¼Œå¯ä½œä¸ºå³å€¼
 	const int& at(int row, int col) const {
 		return _datas[row][col];
 	}
-	//¾ØÕóÔªËØ£¬¿É×÷Îª×óÖµ
+	//çŸ©é˜µå…ƒç´ ï¼Œå¯ä½œä¸ºå·¦å€¼
 	int& at(int row, int col) {
 		return _datas[row][col];
 	}
-	//¾ØÕóĞĞÊı
+	//çŸ©é˜µè¡Œæ•°
 	int GetRowCount() const {
 		return _datas.size();
 	}
-	//¾ØÕóÁĞÊı
+	//çŸ©é˜µåˆ—æ•°
 	int GetColCount() const {
 		return _datas[0].size();
 	}
 private:
-	//´æ·Å¾ØÕóÔªËØ£¬ ±¾ÀàÃ»ÓĞÖ±½Ó¶¯Ì¬·ÖÅä£¬ÎŞĞèÖØÔØ¿½±´¹¹ÔìºÍ¸³Öµ
+	//å­˜æ”¾çŸ©é˜µå…ƒç´ ï¼Œ æœ¬ç±»æ²¡æœ‰ç›´æ¥åŠ¨æ€åˆ†é…ï¼Œæ— éœ€é‡è½½æ‹·è´æ„é€ å’Œèµ‹å€¼
 	vector<vector<int> > _datas;
 };
 Matrix::Matrix(int row, int col)
