@@ -1,6 +1,6 @@
-/*Ó¦ÓÃÖÐ¾­³£Óöµ½´óÊýÔËËãÎÊÌâ¡£ÇëÔÚ±ê×¼ÈÝÆ÷Á´±í»òË«¶Ë¶ÓÁÐ»ù´¡ÉÏ£¬Éè¼ÆÊµÏÖÎÞ·ûºÅ
-´óÊýÀà CUBigNumber£¬ÒªÇóÍê³ÉÎÞ·ûºÅ´óÊýÀàµÄÎÞ²Î¹¹Ôì¡¢ÊäÈë¡¢Êä³ö¡¢+¹¦ÄÜ¡£ÏÂÊöÊÇ
-Ê¹ÓÃÎÞ·ûºÅ´óÊýÀà CUBigNumber µÄÑùÀý³ÌÐòºÍÊäÈë¡¢Êä³ö½á¹û¡£*/
+/*åº”ç”¨ä¸­ç»å¸¸é‡åˆ°å¤§æ•°è¿ç®—é—®é¢˜ã€‚è¯·åœ¨æ ‡å‡†å®¹å™¨é“¾è¡¨æˆ–åŒç«¯é˜Ÿåˆ—åŸºç¡€ä¸Šï¼Œè®¾è®¡å®žçŽ°æ— ç¬¦å·
+å¤§æ•°ç±» CUBigNumberï¼Œè¦æ±‚å®Œæˆæ— ç¬¦å·å¤§æ•°ç±»çš„æ— å‚æž„é€ ã€è¾“å…¥ã€è¾“å‡ºã€+åŠŸèƒ½ã€‚ä¸‹è¿°æ˜¯
+ä½¿ç”¨æ— ç¬¦å·å¤§æ•°ç±» CUBigNumber çš„æ ·ä¾‹ç¨‹åºå’Œè¾“å…¥ã€è¾“å‡ºç»“æžœã€‚*/
 #include <iostream>
 #include <list>
 #include <assert.h>
@@ -75,7 +75,7 @@ CUBigNumber CUBigNumber::operator+(CUBigNumber& rhs)const
 int main()
 {
 	CUBigNumber A, B, C;
-	cin >> A >> B; //´Ó±ê×¼ÊäÈëÁ÷¶ÁÈëÎÞ·ûºÅ´óÊý
-	C = A + B; //ÎÞ·ûºÅ´óÊýÏà¼Ó
+	cin >> A >> B; //ä»Žæ ‡å‡†è¾“å…¥æµè¯»å…¥æ— ç¬¦å·å¤§æ•°
+	C = A + B; //æ— ç¬¦å·å¤§æ•°ç›¸åŠ 
 	cout << A << "+" << B << "=" << C << endl;
 }
